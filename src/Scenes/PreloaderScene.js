@@ -5,11 +5,7 @@ export default class PreloaderScene extends Phaser.Scene {
     super('Preloader');
   }
 
-  preload() {
-    this.load.image('logo', 'src/assets/logo.png');
-  }
+  preload() {}
 
-  create() {
-    this.scene.start('Preloader');
-  }
+  create() {}
 }

@@ -6,6 +6,8 @@ export default class PreloaderScene extends Phaser.Scene {
   }
 
   preload() {
+
+    console.log('Preload running');
     // add logo image
     this.add.image(400, 200, 'logo');
 
@@ -93,6 +95,7 @@ export default class PreloaderScene extends Phaser.Scene {
   }
 
   ready() {
+    this.scene.start('Title');
     this.readyCount++;
     if (this.readyCount === 2) {
       this.scene.start('Title');

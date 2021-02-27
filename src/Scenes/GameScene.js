@@ -67,4 +67,18 @@ export default class GameScene extends Phaser.Scene {
       gameState.spawnRange[1]
     );
   }
+
+  // the player jumps when on the ground, or once in the air as long as there are jumps left and the first jump was on the ground
+  jump() {
+    if (
+      this.player.body.touching.down ||
+      (this.playerJumps > 0 && this.playerJumps < gameState.jumps)
+    ) {
+      if (this.player.body.touching.down) {
+        this.playerJumps = 0;
+      }
+      this.player.setVelocityY(gameState.jumpForce * -1);
+      this.playerJumps++;
+    }
+  }
 }

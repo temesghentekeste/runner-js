@@ -5,4 +5,8 @@ export default {
   parent: content,
   width: 800,
   height: 600,
+  // physics settings
+  physics: {
+    default: 'arcade',
+  },
 };

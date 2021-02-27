@@ -1,8 +1,8 @@
 import 'phaser';
-
+const content = document.querySelector('#content')
 export default {
   type: Phaser.AUTO,
-  parent: 'phaser-example',
+  parent: content,
   width: 800,
   height: 600,
 };

@@ -6,8 +6,15 @@ export default class GameScene extends Phaser.Scene {
   }
 
   preload() {
-    // load images
-    this.load.image('logo', 'src/assets/logo.png');
+    this.load.image('platform', 'platform.png');
+    this.load.image(
+      'player',
+      'https://content.codecademy.com/courses/learn-phaser/physics/codey.png'
+    );
+    this.load.image(
+      'sky',
+      'https://content.codecademy.com/courses/learn-phaser/sky.jpg'
+    );
   }
 
   create() {

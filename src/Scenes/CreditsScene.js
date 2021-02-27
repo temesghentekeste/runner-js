@@ -20,6 +20,8 @@ export default class CreditsScene extends Phaser.Scene {
     \n Assets Providers: 
     \n- Alexandr Zhelanov / soundcloud.com/alexandr-zhelanov
     \n Special Thanks: 
+    \n Phaser Tutorials: 
+    \n Codeacademy: 
     \n Lucas Delbel`,
       { fontSize: '24px', fill: '#fff', align: 'center' }
     );

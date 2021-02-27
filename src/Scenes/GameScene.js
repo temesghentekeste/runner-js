@@ -40,6 +40,17 @@ export default class GameScene extends Phaser.Scene {
 
     // adding a platform to the game, the arguments are platform width and x position
     this.addPlatform(game.config.width, game.config.width / 2);
+
+    // adding the player;
+    this.player = this.physics.add.sprite(
+      gameState.playerStartPosition,
+      game.config.height / 2,
+      'player'
+    );
+    this.player.setGravityY(gameState.playerGravity);
+
+    // adding a platform to the game, the arguments are platform width and x position
+    this.addPlatform(game.config.width, game.config.width / 2);
   }
 
   // the core of the script: platform are added from the pool or created on the fly
@@ -79,6 +90,38 @@ export default class GameScene extends Phaser.Scene {
       }
       this.player.setVelocityY(gameState.jumpForce * -1);
       this.playerJumps++;
+    }
+  }
+
+  update() {
+    // game over
+    if (this.player.y > game.config.height) {
+      this.scene.start('PlayGame');
+    }
+    this.player.x = gameState.playerStartPosition;
+
+    // recycling platforms
+    let minDistance = game.config.width;
+    this.platformGroup.getChildren().forEach(function (platform) {
+      let platformDistance =
+        game.config.width - platform.x - platform.displayWidth / 2;
+      minDistance = Math.min(minDistance, platformDistance);
+      if (platform.x < -platform.displayWidth / 2) {
+        this.platformGroup.killAndHide(platform);
+        this.platformGroup.remove(platform);
+      }
+    }, this);
+
+    // adding new platforms
+    if (minDistance > this.nextPlatformDistance) {
+      var nextPlatformWidth = Phaser.Math.Between(
+        gameState.platformSizeRange[0],
+        gameState.platformSizeRange[1]
+      );
+      this.addPlatform(
+        nextPlatformWidth,
+        game.config.width + nextPlatformWidth / 2
+      );
     }
   }
 }

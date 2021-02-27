@@ -49,8 +49,11 @@ export default class GameScene extends Phaser.Scene {
     );
     this.player.setGravityY(gameState.playerGravity);
 
-    // adding a platform to the game, the arguments are platform width and x position
-    this.addPlatform(game.config.width, game.config.width / 2);
+    // setting collisions between the player and the platform group
+    this.physics.add.collider(this.player, this.platformGroup);
+
+    // checking for input
+    this.input.on('pointerdown', this.jump, this);
   }
 
   // the core of the script: platform are added from the pool or created on the fly

@@ -6,7 +6,6 @@ export default class CreditsScene extends Phaser.Scene {
     super('Credits');
   }
 
-  preload() {}
 
   create() {
     this.creditsText = this.add.text(0, 0, 'Credits', {
@@ -21,7 +20,7 @@ export default class CreditsScene extends Phaser.Scene {
     \n Assets Providers: 
     \n- Alexandr Zhelanov / soundcloud.com/alexandr-zhelanov
     \n Special Thanks: 
-    \n Lucas Delbel`, 
+    \n Lucas Delbel`,
       { fontSize: '24px', fill: '#fff', align: 'center' }
     );
     this.zone = this.add.zone(
@@ -48,6 +47,7 @@ export default class CreditsScene extends Phaser.Scene {
       },
     });
 
+    // add a few tweens
     this.madeByTween = this.tweens.add({
       targets: this.madeByText,
       y: -300,

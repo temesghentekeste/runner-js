@@ -8,6 +8,7 @@ export default class GameScene extends Phaser.Scene {
     this.background = background[0];
     this.selfScale = 1;
     this.seconds = 80000;
+    
   }
 
   preload() {

@@ -79,6 +79,12 @@ export default class PreloaderScene extends Phaser.Scene {
       this.ready();
     });
 
+    // load sprite for trophies
+    this.load.spritesheet('coin', 'src/assets/trophy/coin.png', {
+      frameWidth: 20,
+      frameHeight: 20,
+    });
+
     this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
 
     // load assets needed in our game

@@ -131,6 +131,8 @@ export default class GameScene extends Phaser.Scene {
   // the core of the script: platform are added from the pool or created on the fly
   addPlatform(platformWidth, posX) {
     let platform;
+    this.addedPlatforms += 1;
+    let posY = 800 * gameState.platformVerticalLimit[1];
     if (this.platformPool.getLength()) {
       platform = this.platformPool.getFirst();
       platform.x = posX;

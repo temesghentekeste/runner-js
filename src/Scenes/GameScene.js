@@ -44,17 +44,17 @@ export default class GameScene extends Phaser.Scene {
       repeat: -1,
     });
 
-     this.coinGroup = this.add.group({
-       removeCallback(coin) {
-         coin.scene.coinPool.add(coin);
-       },
-     });
+    this.coinGroup = this.add.group({
+      removeCallback(coin) {
+        coin.scene.coinPool.add(coin);
+      },
+    });
 
-     this.coinPool = this.add.group({
-       removeCallback(coin) {
-         coin.scene.coinGroup.add(coin);
-       },
-     });
+    this.coinPool = this.add.group({
+      removeCallback(coin) {
+        coin.scene.coinGroup.add(coin);
+      },
+    });
 
     // score
     this.count = 0;
@@ -118,6 +118,14 @@ export default class GameScene extends Phaser.Scene {
 
     // checking for input
     this.input.on('pointerdown', this.jump, this);
+
+    // overlap between player and coin
+    this.physics.add.overlap(this.player, this.coinGroup, (player, coin) => {
+      gameState.score += 20;
+      this.scoreText.text = `score: ${gameState.score}`;
+      // this.sound.play('collectCoin');
+      coin.disableBody(true, true);
+    });
   }
 
   // the core of the script: platform are added from the pool or created on the fly

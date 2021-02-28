@@ -45,6 +45,19 @@ export default class GameScene extends Phaser.Scene {
         fill: '#000000',
       });
 
+      // Timer Interval
+      this.timerInterval = setInterval(() => {
+        const time = this.setMinutes(this.seconds);
+        this.timeText.text = time;
+        this.count += 1000;
+        if (this.count !== 0 && this.count % 2 === 0) {
+          gameState.score += 5;
+          this.scoreText.text = `Score: ${gameState.score}`;
+        }
+
+        this.seconds -= 1000;
+      }, 1000);
+
     // group with all active platforms.
     this.platformGroup = this.add.group({
       // once a platform is removed, it's added to the pool

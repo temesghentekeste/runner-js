@@ -44,6 +44,18 @@ export default class GameScene extends Phaser.Scene {
       repeat: -1,
     });
 
+     this.coinGroup = this.add.group({
+       removeCallback(coin) {
+         coin.scene.coinPool.add(coin);
+       },
+     });
+
+     this.coinPool = this.add.group({
+       removeCallback(coin) {
+         coin.scene.coinGroup.add(coin);
+       },
+     });
+
     // score
     this.count = 0;
     gameState.score = 0;

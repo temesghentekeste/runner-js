@@ -249,6 +249,14 @@ export default class GameScene extends Phaser.Scene {
         game.config.width + nextPlatformWidth / 2
       );
     }
+
+    // coin
+    this.coinGroup.getChildren().forEach((coin) => {
+      if (coin.x < -coin.displayWidth / 2) {
+        this.coinGroup.killAndHide(coin);
+        this.coinGroup.remove(coin);
+      }
+    }, this);
   }
 
   setTime(mseconds) {

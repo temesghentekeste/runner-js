@@ -8,8 +8,6 @@ export default class GameScene extends Phaser.Scene {
     this.background = background[0];
     this.selfScale = 1;
     this.seconds = 80000;
-
-
   }
 
   preload() {
@@ -35,28 +33,28 @@ export default class GameScene extends Phaser.Scene {
     // score
     this.count = 0;
 
-      this.timeText = this.add.text(550, 16, 'Good Luck!', {
-        fontSize: '32px',
-        fill: '#000',
-      });
+    this.timeText = this.add.text(550, 16, 'Good Luck!', {
+      fontSize: '32px',
+      fill: '#000',
+    });
 
-      this.scoreText = this.add.text(10, 10, `Score: ${gameState.score}`, {
-        fontSize: '2rem',
-        fill: '#000000',
-      });
+    this.scoreText = this.add.text(10, 10, `Score: ${gameState.score}`, {
+      fontSize: '2rem',
+      fill: '#000000',
+    });
 
-      // Timer Interval
-      this.timerInterval = setInterval(() => {
-        const time = this.setMinutes(this.seconds);
-        this.timeText.text = time;
-        this.count += 1000;
-        if (this.count !== 0 && this.count % 2 === 0) {
-          gameState.score += 5;
-          this.scoreText.text = `Score: ${gameState.score}`;
-        }
+    // Timer Interval
+    this.timerInterval = setInterval(() => {
+      const time = this.setTime(this.seconds);
+      this.timeText.text = time;
+      this.count += 1000;
+      if (this.count !== 0 && this.count % 2 === 0) {
+        gameState.score += 5;
+        this.scoreText.text = `Score: ${gameState.score}`;
+      }
 
-        this.seconds -= 1000;
-      }, 1000);
+      this.seconds -= 1000;
+    }, 1000);
 
     // group with all active platforms.
     this.platformGroup = this.add.group({
@@ -172,5 +170,12 @@ export default class GameScene extends Phaser.Scene {
         game.config.width + nextPlatformWidth / 2
       );
     }
+  }
+
+  setTime(mseconds) {
+    this.newSeconds = mseconds / 1000;
+    const minutes = Math.floor(this.newSeconds / 60);
+    const time = `${minutes} : ${this.newSeconds % 60}`;
+    return time;
   }
 }

@@ -152,6 +152,49 @@ export default class GameScene extends Phaser.Scene {
       gameState.spawnRange[0],
       gameState.spawnRange[1]
     );
+
+    // coin collection
+    if (this.addedPlatforms > 1) {
+      if (Phaser.Math.Between(1, 100) <= gameState.coinPercent) {
+        if (this.coinPool.getLength()) {
+          console.log('Running', this.coinPool.getLength());
+          const coin = this.coinPool.getFirst();
+          coin.x =
+            posX - platformWidth / 2 + Phaser.Math.Between(1, platformWidth);
+          coin.y = posY - 96;
+          coin.alpha = 1;
+          coin.active = true;
+          coin.visible = true;
+          this.coinGroup.children.entries.forEach((plat) =>
+            plat.body.setVelocityX(this.speedIncrease * -1)
+          );
+          this.coinPool.children.entries.forEach((plat) =>
+            plat.body.setVelocityX(this.speedIncrease * -1)
+          );
+          coin.setVelocityX(this.speedIncrease * -1);
+
+          this.coinPool.remove(coin);
+        } else {
+          const coin = this.physics.add.sprite(
+            posX - platformWidth / 2 + Phaser.Math.Between(1, platformWidth),
+            posY - 96,
+            'coin'
+          );
+          coin.setImmovable(true);
+          coin.setVelocityX(this.speedIncrease * -1);
+          this.coinGroup.children.entries.forEach((plat) =>
+            plat.body.setVelocityX(this.speedIncrease * -1)
+          );
+          this.coinPool.children.entries.forEach((plat) =>
+            plat.body.setVelocityX(this.speedIncrease * -1)
+          );
+          coin.anims.play('rotate');
+
+          coin.setDepth(2);
+          this.coinGroup.add(coin);
+        }
+      }
+    }
   }
 
   // the player jumps when on the ground, or once in the air as long as there are jumps left and the first jump was on the ground

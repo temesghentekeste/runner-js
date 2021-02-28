@@ -8,7 +8,8 @@ export default class GameScene extends Phaser.Scene {
     this.background = background[0];
     this.selfScale = 1;
     this.seconds = 80000;
-    
+    this.addedPlatforms = 0;
+    this.speedIncrease = 400;
   }
 
   preload() {
@@ -29,6 +30,18 @@ export default class GameScene extends Phaser.Scene {
       this[back] = this.add.tileSprite(0, 0, 0, 0, back).setScale(1);
       this[back].setOrigin(0, 0);
       this[back].setScrollFactor(0);
+    });
+
+    // coin
+    this.anims.create({
+      key: 'rotate',
+      frames: this.anims.generateFrameNumbers('coin', {
+        start: 0,
+        end: 5,
+      }),
+      frameRate: 15,
+      yoyo: true,
+      repeat: -1,
     });
 
     // score

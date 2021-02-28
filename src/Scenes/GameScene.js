@@ -1,12 +1,14 @@
 import 'phaser';
 import gameState from '../Config/gameState';
-import background from '../utils/background'
+import background from '../utils/background';
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
     super('Game');
     this.background = background[0];
     this.selfScale = 1;
+    this.nextScene = 'DiaglogueOne';
+
   }
 
   preload() {
@@ -116,7 +118,7 @@ export default class GameScene extends Phaser.Scene {
 
     // game over
     if (this.player.y > game.config.height) {
-      this.scene.start('PlayGame');
+      this.scene.start('GameOver', { previousScene: this.scene });
     }
     this.player.x = gameState.playerStartPosition;
 

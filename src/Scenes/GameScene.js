@@ -13,15 +13,7 @@ export default class GameScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('platform', 'platform.png');
-    this.load.image(
-      'player',
-      'https://content.codecademy.com/courses/learn-phaser/physics/codey.png'
-    );
-    this.load.image(
-      'sky',
-      'https://content.codecademy.com/courses/learn-phaser/sky.jpg'
-    );
+    this.load.image('player', 'src/assets/player/codey.png');
   }
 
   create() {
@@ -123,7 +115,7 @@ export default class GameScene extends Phaser.Scene {
     this.physics.add.overlap(this.player, this.coinGroup, (player, coin) => {
       gameState.score += 20;
       this.scoreText.text = `score: ${gameState.score}`;
-      // this.sound.play('collectCoin');
+      this.sound.play('collectCoin');
       coin.disableBody(true, true);
     });
   }

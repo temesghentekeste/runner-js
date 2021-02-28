@@ -19,6 +19,7 @@ export default class CreditsScene extends Phaser.Scene {
       `Created By: Temesghen T Bahta  
     \n Assets Providers: 
     \n- Alexandr Zhelanov / soundcloud.com/alexandr-zhelanov
+    \n- Zapsplat / https://www.zapsplat.com/
     \n Special Thanks: 
     \n Phaser Tutorials: 
     \n Codeacademy: 

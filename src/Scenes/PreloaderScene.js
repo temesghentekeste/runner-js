@@ -1,11 +1,19 @@
 import 'phaser';
-
+import background from '../utils/background';
 export default class PreloaderScene extends Phaser.Scene {
   constructor() {
     super('Preloader');
+    this.backgrounds = background;
   }
 
   preload() {
+    // backgrounds
+    this.backgrounds.forEach((backArr) => {
+      backArr.forEach((layer) =>
+        this.load.image(layer, `src/assets/background/${layer}.jpg`)
+      );
+    });
+
     // add logo image
     this.add.image(400, 200, 'logo');
 

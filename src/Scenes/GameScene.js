@@ -1,9 +1,12 @@
 import 'phaser';
 import gameState from '../Config/gameState';
+import background from '../utils/background'
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
     super('Game');
+    this.background = background[0];
+    this.selfScale = 1;
   }
 
   preload() {
@@ -19,6 +22,13 @@ export default class GameScene extends Phaser.Scene {
   }
 
   create() {
+    //background
+    this.background.forEach((back) => {
+      this[back] = this.add.tileSprite(0, 0, 0, 0, back).setScale(1);
+      this[back].setOrigin(0, 0);
+      this[back].setScrollFactor(0);
+    });
+
     // group with all active platforms.
     this.platformGroup = this.add.group({
       // once a platform is removed, it's added to the pool
@@ -97,6 +107,13 @@ export default class GameScene extends Phaser.Scene {
   }
 
   update() {
+    // parallax effect
+    this.parallax = 0;
+    this.background.forEach((back) => {
+      this.parallax -= 0.22;
+      this[back].tilePositionX -= this.parallax;
+    });
+
     // game over
     if (this.player.y > game.config.height) {
       this.scene.start('PlayGame');

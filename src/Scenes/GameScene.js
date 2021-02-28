@@ -32,6 +32,7 @@ export default class GameScene extends Phaser.Scene {
 
     // score
     this.count = 0;
+    gameState.score = 0;
 
     this.timeText = this.add.text(550, 16, 'Good Luck!', {
       fontSize: '32px',

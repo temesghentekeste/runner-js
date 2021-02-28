@@ -10,6 +10,7 @@ export default class GameScene extends Phaser.Scene {
     this.seconds = 80000;
     this.addedPlatforms = 0;
     this.speedIncrease = 400;
+
   }
 
   preload() {
@@ -17,6 +18,8 @@ export default class GameScene extends Phaser.Scene {
   }
 
   create() {
+    this.model = this.sys.game.globals.model;
+
     //background
     this.background.forEach((back) => {
       this[back] = this.add.tileSprite(0, 0, 0, 0, back).setScale(1);
@@ -115,7 +118,7 @@ export default class GameScene extends Phaser.Scene {
     this.physics.add.overlap(this.player, this.coinGroup, (player, coin) => {
       gameState.score += 20;
       this.scoreText.text = `score: ${gameState.score}`;
-      this.sound.play('collectCoin');
+      if (this.model.soundOn === true) this.sound.play('collectCoin');
       coin.disableBody(true, true);
     });
   }

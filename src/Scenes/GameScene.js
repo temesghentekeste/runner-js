@@ -144,6 +144,7 @@ export default class GameScene extends Phaser.Scene {
     // game over
     if (this.player.y > game.config.height) {
       this.scene.start('GameOver', { previousScene: this.scene });
+      clearInterval(this.timerInterval);
     }
     this.player.x = gameState.playerStartPosition;
 

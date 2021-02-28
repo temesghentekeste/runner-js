@@ -7,7 +7,8 @@ export default class GameScene extends Phaser.Scene {
     super('Game');
     this.background = background[0];
     this.selfScale = 1;
-    this.nextScene = 'DiaglogueOne';
+    this.seconds = 80000;
+
 
   }
 
@@ -30,6 +31,19 @@ export default class GameScene extends Phaser.Scene {
       this[back].setOrigin(0, 0);
       this[back].setScrollFactor(0);
     });
+
+    // score
+    this.count = 0;
+
+      this.timeText = this.add.text(550, 16, 'Good Luck!', {
+        fontSize: '32px',
+        fill: '#000',
+      });
+
+      this.scoreText = this.add.text(10, 10, `Score: ${gameState.score}`, {
+        fontSize: '2rem',
+        fill: '#000000',
+      });
 
     // group with all active platforms.
     this.platformGroup = this.add.group({

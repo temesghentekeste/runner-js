@@ -7,7 +7,9 @@ let gameOptions = {
   jumpForce: 400,
   playerStartPosition: 200,
   jumps: 2,
-  score: 0
+  score: 0,
+  coinPercent: 75,
+  platformVerticalLimit: [0.4, 0.8],
 };
 
 export default gameOptions;

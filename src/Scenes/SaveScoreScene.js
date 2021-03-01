@@ -47,9 +47,15 @@ export default class SaveScoreScene extends Phaser.Scene {
 
     document.querySelector('form').addEventListener('submit', e => {
       e.preventDefault();
-      const name = document.querySelector('.txt-name').value.trim();
-      const request = new Request();
-      request.createGame().then( data => console.log(data))
+      const user = document.querySelector('.txt-name').value.trim();
+       const score = parseInt(gameState.score);
+
+       console.log(user, score);
+       const request = new Request();
+
+       request.saveScore(user, score)
+         .then((data) => console.log(data))
+         .catch((err) => console.log(err));
     })
 
     // Try again

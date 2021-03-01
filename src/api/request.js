@@ -23,9 +23,9 @@ export default class Request {
     const gameId = await response.json();
     return gameId;
   }
-  async saveScore(resource, user, score) {
+  async saveScore(user, score) {
     const gameId = '5coxWis0ZvCOhi2R2Uqk';
-    const gameScoresURI = `${resource}:${gameId}/scores`;
+    const gameScoresURI = `${this.baseURI}:${gameId}/scores`;
     const playerScore = {
       user,
       score,

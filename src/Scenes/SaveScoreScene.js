@@ -37,16 +37,18 @@ export default class SaveScoreScene extends Phaser.Scene {
     // submit score
     const form = document.createElement('form');
     form.innerHTML = `
-      <input type="text" name="name" placeholder="Enter your name" required minLength="3" maxLength="10" autofocus/>
-      <button type="submit">Submit</button>
+        <div class="form-group d-flex">
+          <input  type="text" name="name" placeholder="Enter your name" required minLength="3" maxLength="10" autofocus/>
+          <button class="btn btn-info" type="submit">Submit</button>
+        </div>
     `;
-    this.add.dom(config.width * 0.5, config.height * 0.3, form);
+    this.add.dom(this.scale.width * 0.1, 10, form);
 
     // Try again
     this.gameButton = new Button(
       this,
       config.width / 2,
-      config.height / 2 - 100,
+      config.height / 2 + 100,
       'blueButton1',
       'blueButton2',
       'Try Again',

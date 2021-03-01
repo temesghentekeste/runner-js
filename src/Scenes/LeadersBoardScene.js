@@ -30,32 +30,27 @@ export default class LeadersBoardScene extends Phaser.Scene {
     position += 25;
     this.usersSortedScore.forEach((result, index) => {
       if (index < 10) {
-        this.add
-          .text(
-            300,
-            position,
-            `  ${index + 1} `
-          )
-          .setTint(0xff0000);
+        this.add.text(300, position, `  ${index + 1} `).setTint(0xff0000);
 
-        this.add
-          .text(
-            400,
-            position,
-            `${result.user}`
-          )
-          .setTint(0xff0000);
+        this.add.text(400, position, `${result.user}`).setTint(0xff0000);
 
-        this.add
-          .text(
-            500,
-            position,
-            `${result.score}`
-          )
-          .setTint(0xff0000);
+        this.add.text(500, position, `${result.score}`).setTint(0xff0000);
 
         position += 25;
       }
+    });
+
+    this.add
+      .text(
+        this.scale.width * 0.5,
+        this.scale.height * 0.8,
+        'Press space to play again.'
+      )
+      .setOrigin();
+
+    // Start a new game 
+    this.input.keyboard.once('keydown-SPACE', () => {
+      this.scene.start('Game');
     });
   }
 }

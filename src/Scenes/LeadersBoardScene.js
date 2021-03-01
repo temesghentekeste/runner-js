@@ -18,7 +18,9 @@ export default class LeadersBoardScene extends Phaser.Scene {
 
     let position = 130;
     // fetching the score
-    this.add.text(300, position, 'RANK  NAME   SCORE').setTint(0x00ff00);
+    this.add.text(300, position, 'RANK').setTint(0x00ff00);
+    this.add.text(400, position, 'NAME').setTint(0x00ff00);
+    this.add.text(500, position, 'SCORE').setTint(0x00ff00);
     const request = new Request();
     this.usersScore = await request.getAllPlayers();
     this.usersSortedScore = this.usersScore.result.sort((a, b) =>
@@ -29,11 +31,31 @@ export default class LeadersBoardScene extends Phaser.Scene {
     this.usersSortedScore.forEach((result, index) => {
       if (index < 10) {
         this.add
-          .text(300, position, `  ${index + 1}     ${result.user}   ${result.score}`)
+          .text(
+            300,
+            position,
+            `  ${index + 1} `
+          )
           .setTint(0xff0000);
+
+        this.add
+          .text(
+            400,
+            position,
+            `${result.user}`
+          )
+          .setTint(0xff0000);
+
+        this.add
+          .text(
+            500,
+            position,
+            `${result.score}`
+          )
+          .setTint(0xff0000);
+
         position += 25;
       }
     });
-
   }
 }

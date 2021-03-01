@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import Button from '../Components/Button';
 import config from '../Config/config';
 import gameState from '../Config/gameState';
+import Request from '../api/request'
 
 export default class SaveScoreScene extends Phaser.Scene {
   constructor() {
@@ -38,11 +39,18 @@ export default class SaveScoreScene extends Phaser.Scene {
     const form = document.createElement('form');
     form.innerHTML = `
         <div class="form-group d-flex">
-          <input  type="text" name="name" placeholder="Enter your name" required minLength="3" maxLength="10" autofocus/>
-          <button class="btn btn-info" type="submit">Submit</button>
+          <input class="txt-name" type="text" name="name" placeholder="Enter your name" required minLength="3" maxLength="10" autofocus/>
+          <button class="btn btn-info btn-save-score" type="submit">Submit</button>
         </div>
     `;
     this.add.dom(this.scale.width * 0.1, 10, form);
+
+    document.querySelector('form').addEventListener('submit', e => {
+      e.preventDefault();
+      const name = document.querySelector('.txt-name').value.trim();
+      const request = new Request();
+      request.createGame().then( data => console.log(data))
+    })
 
     // Try again
     this.gameButton = new Button(

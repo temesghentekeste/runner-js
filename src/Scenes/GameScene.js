@@ -10,11 +10,11 @@ export default class GameScene extends Phaser.Scene {
     this.seconds = 80000;
     this.addedPlatforms = 0;
     this.speedIncrease = 400;
-
   }
 
   preload() {
     this.load.image('player', 'src/assets/player/codey.png');
+    this.load.image('platform', 'src/assets/platform/platform.jpeg');
   }
 
   create() {

@@ -1,5 +1,5 @@
 import 'phaser';
-const content = document.querySelector('#content')
+const content = document.querySelector('#content');
 export default {
   type: Phaser.AUTO,
   parent: content,
@@ -8,5 +8,9 @@ export default {
   // physics settings
   physics: {
     default: 'arcade',
+  },
+  pixelArt: true,
+  dom: {
+    createContainer: true,
   },
 };

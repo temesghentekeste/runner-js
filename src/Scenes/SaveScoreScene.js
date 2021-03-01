@@ -1,4 +1,7 @@
 import Phaser from 'phaser';
+import Button from '../Components/Button';
+import config from '../Config/config';
+import gameState from '../Config/gameState';
 
 export default class SaveScoreScene extends Phaser.Scene {
   constructor() {
@@ -7,10 +10,6 @@ export default class SaveScoreScene extends Phaser.Scene {
 
   init(data) {
     this.finalScore = data.score;
-  }
-
-  preload() {
-    this.load.image('reset', 'assets/reset.png');
   }
 
   create() {
@@ -30,25 +29,28 @@ export default class SaveScoreScene extends Phaser.Scene {
       .text(
         this.scale.width * 0.5,
         this.scale.height * 0.2,
-        `Final score: ${this.finalScore}`,
+        `Final score: ${gameState.score}`,
         { fontSize: 24 }
       )
       .setOrigin();
-    // reset button
-    const resetButton = this.add
-      .image(this.scale.width * 0.5, this.scale.height * 0.5, 'reset')
-      .setScale(0.5);
-    resetButton.setInteractive({ useHandCursor: true });
-    resetButton.on('pointerdown', () => {
-      this.scene.start('game');
-    });
-    // form
+
+    // submit score
     const form = document.createElement('form');
     form.innerHTML = `
       <input type="text" name="name" placeholder="Enter your name" required minLength="3" maxLength="10" autofocus/>
       <button type="submit">Submit</button>
     `;
+    this.add.dom(config.width * 0.5, config.height * 0.3, form);
 
-    this.add.dom(this.scale.width * 0.5, this.scale.height * 0.3, form);
+    // Try again
+    this.gameButton = new Button(
+      this,
+      config.width / 2,
+      config.height / 2 - 100,
+      'blueButton1',
+      'blueButton2',
+      'Try Again',
+      'Game'
+    );
   }
 }

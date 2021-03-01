@@ -50,14 +50,12 @@ export default class SaveScoreScene extends Phaser.Scene {
       const user = document.querySelector('.txt-name').value.trim();
       const score = parseInt(gameState.score);
 
-      console.log(user, score);
       const request = new Request();
 
       request
         .saveScore(user, score)
         .then((data) => {
-          this.scene.stop();
-          this.scene.start('Leadersboard');
+          this.scene.start('LeadersBoard');
         })
         .catch(() => {
           this.add

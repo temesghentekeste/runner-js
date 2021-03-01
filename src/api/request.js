@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 export default class Request {
   constructor() {
-    this.apiKey = '5coxWis0ZvCOhi2R2Uqk';
+    this.gameId = '5coxWis0ZvCOhi2R2Uqk';
     this.baseURI =
       'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/';
   }
@@ -24,8 +24,7 @@ export default class Request {
     return gameId;
   }
   async saveScore(user, score) {
-    const gameId = '5coxWis0ZvCOhi2R2Uqk';
-    const gameScoresURI = `${this.baseURI}:${gameId}/scores`;
+    const gameScoresURI = `${this.baseURI}:${this.gameId}/scores`;
     const playerScore = {
       user,
       score,
@@ -47,9 +46,8 @@ export default class Request {
     return data;
   }
 
-  async getAllPlayers(resource) {
-    const gameId = 'EhLxS6V5sZPuCVJXFpTU';
-    const gameScoresURI = `${resource}:${gameId}/scores`;
+  async getAllPlayers() {
+    const gameScoresURI = `${this.baseURI}:${this.gameId}/scores`;
 
     const response = await fetch(gameScoresURI);
 

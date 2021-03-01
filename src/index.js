@@ -12,6 +12,7 @@ import OptionsScene from './Scenes/OptionsScene';
 import CreditsScene from './Scenes/CreditsScene';
 import GameOverScene from './Scenes/GameOverScene';
 import SaveScoreScene from './Scenes/SaveScoreScene';
+import LeadersBoardScene from './Scenes/LeadersBoardScene';
 
 
 class Game extends Phaser.Game {
@@ -29,6 +30,7 @@ class Game extends Phaser.Game {
     this.scene.add('Game', GameScene);
     this.scene.add('GameOver', GameOverScene);
     this.scene.add('SaveScore', SaveScoreScene);
+    this.scene.add('LeadersBoard', LeadersBoardScene);
 
     this.scene.start('Boot');
   }

@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import Button from '../Components/Button';
 import config from '../Config/config';
 import gameState from '../Config/gameState';
-import Request from '../api/request'
+import Request from '../api/request';
 
 export default class SaveScoreScene extends Phaser.Scene {
   constructor() {
@@ -45,18 +45,30 @@ export default class SaveScoreScene extends Phaser.Scene {
     `;
     this.add.dom(this.scale.width * 0.1, 10, form);
 
-    document.querySelector('form').addEventListener('submit', e => {
+    document.querySelector('form').addEventListener('submit', (e) => {
       e.preventDefault();
       const user = document.querySelector('.txt-name').value.trim();
-       const score = parseInt(gameState.score);
+      const score = parseInt(gameState.score);
 
-       console.log(user, score);
-       const request = new Request();
+      console.log(user, score);
+      const request = new Request();
 
-       request.saveScore(user, score)
-         .then((data) => console.log(data))
-         .catch((err) => console.log(err));
-    })
+      request
+        .saveScore(user, score)
+        .then((data) => {
+          this.scene.stop();
+          this.scene.start('Leadersboard');
+        })
+        .catch(() => {
+          this.add
+            .text(
+              this.scale.width * 0.5,
+              this.scale.height * 0.8,
+              'Network Error. Please try again later.'
+            )
+            .setOrigin();
+        });
+    });
 
     // Try again
     this.gameButton = new Button(

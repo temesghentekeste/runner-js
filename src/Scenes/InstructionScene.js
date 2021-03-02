@@ -16,7 +16,7 @@ export default class InstructionScene extends Phaser.Scene {
     this.madeByText = this.add.text(
       200,
       0,
-      'We live in a strange \nworld where some people mistreat they little pets.\nJohn, our hero works in a non-profit organization\n where he needs to save any kind of animals that are hurt.\n It does not matter where (sometimes a city, a florest, or even a cave), \nour hero is always there to do whatever it takes.  \nto Sometimes the pets are too hurt and need medical attention really quick.  \nto Can he fill the task and save the little guys?',
+      'Welcome to the Game, \n\nWelcome to the Runner game! \nTo go to the end, \njump to every obstacle you encounter. \n\nThe main goal is to get to the end \n of the platforms \nwithout falling off the platform. \n\nTo Jump, press either\n space or the left mouse button. \n\nEach coin has the value of 20 points, so grab\n the most you can to get the most points. \nSo use it with care!\n\n Good luck! \n\n Enjoy this cool game, \n which is played by dozens of player all over\n the globe. \n\nGood Luck Again!',
       { align: 'center' }
     );
     this.zone = this.add.zone(800 / 2, 600 / 2, 800, 600);

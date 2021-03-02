@@ -57,7 +57,7 @@ export default class TitleScene extends Phaser.Scene {
     this.creditsButton = new Button(
       this,
       config.width / 2,
-      config.height / 2 + 300,
+      config.height / 2 - 200,
       'blueButton1',
       'blueButton2',
       'Instruction',

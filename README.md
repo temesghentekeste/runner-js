@@ -31,7 +31,7 @@ You need to jump from one platform to another. To jump, either press space, or c
 
 ## Screenshots <a name = "screenshots"></a>
 
-![screenshot](./src/assets/screenshot_desktop.gif) 
+![screenshot](./src/assets/screenshot.gif) 
 
 ## 🔧 Built with<a name = "with"></a>
 

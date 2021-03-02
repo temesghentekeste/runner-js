@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 import 'phaser';
-import config from '../Config/config';
 import Request from '../api/request';
 
 export default class LeadersBoardScene extends Phaser.Scene {

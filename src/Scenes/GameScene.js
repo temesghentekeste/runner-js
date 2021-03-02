@@ -112,6 +112,8 @@ export default class GameScene extends Phaser.Scene {
     this.physics.add.collider(this.player, this.platformGroup);
 
     // checking for input
+    const keyObj = this.input.keyboard.addKey('Space');
+    keyObj.on('down', this.jump, this);
     this.input.on('pointerdown', this.jump, this);
 
     // overlap between player and coin

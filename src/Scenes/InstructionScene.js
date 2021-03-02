@@ -1,5 +1,4 @@
 import Phaser from 'phaser';
-import gameState from '../Config/gameState';
 
 export default class InstructionScene extends Phaser.Scene {
   constructor() {

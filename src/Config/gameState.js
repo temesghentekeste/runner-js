@@ -1,5 +1,4 @@
-// global game options
-let gameOptions = {
+const gameOptions = {
   platformStartSpeed: 350,
   spawnRange: [95, 265],
   platformSizeRange: [50, 250],

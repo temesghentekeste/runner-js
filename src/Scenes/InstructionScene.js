@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 import Phaser from 'phaser';
 
 export default class InstructionScene extends Phaser.Scene {
@@ -16,19 +18,19 @@ export default class InstructionScene extends Phaser.Scene {
       200,
       0,
       'Welcome to the Game, \n\nWelcome to the Runner game! \nTo go to the end, \njump to every obstacle you encounter. \n\nThe main goal is to get to the end \n of the platforms \nwithout falling off the platform. \n\nTo Jump, press either\n space or the left mouse button. \n\nEach coin has the value of 20 points, so grab\n the most you can to get the most points. \nSo use it with care!\n\n Good luck! \n\n Enjoy this cool game, \n which is played by dozens of player all over\n the globe. \n\nGood Luck Again!',
-      { align: 'center' }
+      { align: 'center' },
     );
     this.zone = this.add.zone(800 / 2, 600 / 2, 800, 600);
 
     this.add
       .text(
-        this.scale.width * 0.5 ,
+        this.scale.width * 0.5,
         200,
-        'Press space to play the game.'
+        'Press space to play the game.',
       )
       .setOrigin();
 
-  
+
     Phaser.Display.Align.In.Center(this.introText, this.zone);
 
     Phaser.Display.Align.In.Center(this.madeByText, this.zone);
@@ -51,10 +53,8 @@ export default class InstructionScene extends Phaser.Scene {
       },
     });
 
-     // Start a new game
     this.input.keyboard.once('keydown-SPACE', () => {
       this.scene.start('Game');
     });
   }
-  
 }

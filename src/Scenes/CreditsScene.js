@@ -1,3 +1,4 @@
+/* eslint-disable no-undef, no-unused-expressions, func-names */
 import 'phaser';
 import config from '../Config/config';
 
@@ -5,7 +6,6 @@ export default class CreditsScene extends Phaser.Scene {
   constructor() {
     super('Credits');
   }
-
 
   create() {
     this.creditsText = this.add.text(0, 0, 'Credits', {
@@ -24,13 +24,13 @@ export default class CreditsScene extends Phaser.Scene {
     \n Phaser Tutorials: 
     \n Codeacademy: 
     \n Lucas Delbel`,
-      { fontSize: '24px', fill: '#fff', align: 'center' }
+      { fontSize: '24px', fill: '#fff', align: 'center' },
     );
     this.zone = this.add.zone(
       config.width / 2,
       config.height / 2,
       config.width,
-      config.height
+      config.height,
     );
 
     Phaser.Display.Align.In.Center(this.creditsText, this.zone);
@@ -45,12 +45,11 @@ export default class CreditsScene extends Phaser.Scene {
       ease: 'Power1',
       duration: 3000,
       delay: 1000,
-      onComplete: function () {
+      onComplete() {
         this.destroy;
       },
     });
 
-    // add a few tweens
     this.madeByTween = this.tweens.add({
       targets: this.madeByText,
       y: -300,

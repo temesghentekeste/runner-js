@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 import Phaser from 'phaser';
 import Button from '../Components/Button';
 import config from '../Config/config';
@@ -23,7 +25,7 @@ export default class SaveScoreScene extends Phaser.Scene {
         {
           fontSize: 48,
           color: '#00f',
-        }
+        },
       )
       .setOrigin();
     this.add
@@ -31,7 +33,7 @@ export default class SaveScoreScene extends Phaser.Scene {
         this.scale.width * 0.5,
         this.scale.height * 0.2,
         `Final score: ${gameState.score}`,
-        { fontSize: 24 }
+        { fontSize: 24 },
       )
       .setOrigin();
 
@@ -48,13 +50,13 @@ export default class SaveScoreScene extends Phaser.Scene {
     document.querySelector('form').addEventListener('submit', (e) => {
       e.preventDefault();
       const user = document.querySelector('.txt-name').value.trim();
-      const score = parseInt(gameState.score);
+      const { score } = gameState;
 
       const request = new Request();
 
       request
         .saveScore(user, score)
-        .then((data) => {
+        .then(() => {
           this.scene.start('LeadersBoard');
         })
         .catch(() => {
@@ -62,13 +64,12 @@ export default class SaveScoreScene extends Phaser.Scene {
             .text(
               this.scale.width * 0.5,
               this.scale.height * 0.8,
-              'Network Error. Please try again later.'
+              'Network Error. Please try again later.',
             )
             .setOrigin();
         });
     });
 
-    // Try again
     this.gameButton = new Button(
       this,
       config.width / 2,
@@ -76,7 +77,7 @@ export default class SaveScoreScene extends Phaser.Scene {
       'blueButton1',
       'blueButton2',
       'Try Again',
-      'Game'
+      'Game',
     );
   }
 }

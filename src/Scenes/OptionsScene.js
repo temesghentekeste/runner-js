@@ -1,12 +1,12 @@
+/* eslint-disable no-undef */
+
 import 'phaser';
-import Button from '../Components/Button'
+import Button from '../Components/Button';
 
 export default class OptionsScene extends Phaser.Scene {
   constructor() {
     super('Options');
   }
-
-  preload() {}
 
   create() {
     this.model = this.sys.game.globals.model;
@@ -23,22 +23,21 @@ export default class OptionsScene extends Phaser.Scene {
 
     this.musicButton.on(
       'pointerdown',
-      function () {
+      () => {
         this.model.musicOn = !this.model.musicOn;
         this.updateAudio();
-      }.bind(this)
+      },
     );
 
     this.soundButton.on(
       'pointerdown',
-      function () {
+      () => {
         this.model.soundOn = !this.model.soundOn;
 
         this.updateAudio();
-      }.bind(this)
+      },
     );
 
-    // Navigate back to the TitleScene
     this.menuButton = new Button(
       this,
       400,
@@ -46,7 +45,7 @@ export default class OptionsScene extends Phaser.Scene {
       'blueButton1',
       'blueButton2',
       'Menu',
-      'Title'
+      'Title',
     );
 
     this.updateAudio();

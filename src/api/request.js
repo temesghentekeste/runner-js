@@ -2,14 +2,13 @@
 export default class Request {
   constructor() {
     this.gameId = '5coxWis0ZvCOhi2R2Uqk';
-    this.baseURI =
-      'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/';
+    this.baseURI = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/';
   }
 
   async createGame() {
     const gameName = { name: 'Runner JS' };
     const response = await fetch(this.baseURI, {
-      method: 'POST', // or 'PUT'
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -23,6 +22,7 @@ export default class Request {
     const gameId = await response.json();
     return gameId;
   }
+
   async saveScore(user, score) {
     const gameScoresURI = `${this.baseURI}:${this.gameId}/scores`;
     const playerScore = {
@@ -30,8 +30,9 @@ export default class Request {
       score,
     };
 
+
     const response = await fetch(gameScoresURI, {
-      method: 'POST', // or 'PUT'
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },

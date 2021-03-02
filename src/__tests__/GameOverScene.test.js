@@ -9,5 +9,3 @@ test('gameOverScene is of type object', () => {
 test('gameOverScene key name is Boot', () => {
   expect(gameOverScene.sys.config).toBe('GameOver');
 });
-
-

@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+
 import 'phaser';
 import Button from '../Components/Button';
 import config from '../Config/config';
@@ -24,7 +25,7 @@ export default class GameOverScene extends Phaser.Scene {
       'blueButton1',
       'blueButton2',
       'Try Again',
-      'Game'
+      'Game',
     );
 
     this.gameButton = new Button(
@@ -34,7 +35,7 @@ export default class GameOverScene extends Phaser.Scene {
       'blueButton1',
       'blueButton2',
       'Save Score',
-      'SaveScore'
+      'SaveScore',
     );
 
     this.gameButton = new Button(
@@ -44,7 +45,7 @@ export default class GameOverScene extends Phaser.Scene {
       'blueButton1',
       'blueButton2',
       'Main Menu',
-      'Title'
+      'Title',
     );
 
     if (this.model.soundOn === true) this.sound.play('gameOver');

@@ -9,5 +9,3 @@ test('creditsScene is of type an object', () => {
 test('creditsScene key name is Credits', () => {
   expect(creditsScene.sys.config).toBe('Credits');
 });
-
-

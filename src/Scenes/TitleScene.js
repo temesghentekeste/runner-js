@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 import config from '../Config/config';
 import 'phaser';
 import Button from '../Components/Button';
@@ -7,7 +9,7 @@ export default class TitleScene extends Phaser.Scene {
     super('Title');
   }
 
- 
+
   create() {
     // Game
     this.gameButton = new Button(
@@ -17,10 +19,9 @@ export default class TitleScene extends Phaser.Scene {
       'blueButton1',
       'blueButton2',
       'Play',
-      'Game'
+      'Game',
     );
 
-    // Options
     this.optionsButton = new Button(
       this,
       config.width / 2,
@@ -28,10 +29,9 @@ export default class TitleScene extends Phaser.Scene {
       'blueButton1',
       'blueButton2',
       'Options',
-      'Options'
+      'Options',
     );
 
-    // Credits
     this.creditsButton = new Button(
       this,
       config.width / 2,
@@ -39,10 +39,9 @@ export default class TitleScene extends Phaser.Scene {
       'blueButton1',
       'blueButton2',
       'Credits',
-      'Credits'
+      'Credits',
     );
 
-    // LeadersBoard
     this.creditsButton = new Button(
       this,
       config.width / 2,
@@ -50,10 +49,9 @@ export default class TitleScene extends Phaser.Scene {
       'blueButton1',
       'blueButton2',
       'Leadersboard',
-      'LeadersBoard'
+      'LeadersBoard',
     );
 
-    // Instruction
     this.creditsButton = new Button(
       this,
       config.width / 2,
@@ -61,7 +59,7 @@ export default class TitleScene extends Phaser.Scene {
       'blueButton1',
       'blueButton2',
       'Instruction',
-      'Instruction'
+      'Instruction',
     );
 
     this.model = this.sys.game.globals.model;

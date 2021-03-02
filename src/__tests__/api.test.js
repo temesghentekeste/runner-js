@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-expressions */
+/* eslint-disable import/no-extraneous-dependencies */
 import 'babel-polyfill';
 import Request from '../api/request';
+
 require('jest-fetch-mock').enableMocks();
 
 // eslint-disable-next-line no-unused-vars

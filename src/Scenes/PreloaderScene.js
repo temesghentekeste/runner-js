@@ -1,5 +1,8 @@
+/* eslint-disable no-undef */
+
 import 'phaser';
 import background from '../utils/background';
+
 export default class PreloaderScene extends Phaser.Scene {
   constructor() {
     super('Preloader');
@@ -9,9 +12,7 @@ export default class PreloaderScene extends Phaser.Scene {
   preload() {
     // backgrounds
     this.backgrounds.forEach((backArr) => {
-      backArr.forEach((layer) =>
-        this.load.image(layer, `src/assets/background/${layer}.jpg`)
-      );
+      backArr.forEach((layer) => this.load.image(layer, `src/assets/background/${layer}.jpg`));
     });
 
     // add logo image
@@ -98,7 +99,6 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.audio('gameOver', ['src/assets/music/gameOver.mp3']);
   }
 
-  create() {}
 
   init() {
     this.readyCount = 0;
@@ -106,7 +106,7 @@ export default class PreloaderScene extends Phaser.Scene {
 
   ready() {
     this.scene.start('Title');
-    this.readyCount++;
+    this.readyCount += 1;
     if (this.readyCount === 2) {
       this.scene.start('Title');
     }

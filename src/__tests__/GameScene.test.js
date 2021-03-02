@@ -6,4 +6,6 @@ test('game scene is a function', () => {
   expect(typeof gameInstance).toBe('object');
 });
 
-
+it('should have selfScale atribute set to 1', () => {
+  expect(gameInstance.selfScale).toBe(1);
+});

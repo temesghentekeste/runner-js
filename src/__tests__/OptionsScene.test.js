@@ -2,7 +2,7 @@
 import OptionsScene from '../Scenes/OptionsScene';
 
 const optionsScene = new OptionsScene();
-test('optionsScene  is a function', () => {
+test('optionsScene  is an object', () => {
   expect(typeof optionsScene).toBe('object');
 });
 

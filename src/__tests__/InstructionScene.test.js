@@ -2,7 +2,7 @@
 import InstructionScene from '../Scenes/InstructionScene';
 
 const instructionScene = new InstructionScene();
-test('instructionScene  is a function', () => {
+test('instructionScene  is an object', () => {
   expect(typeof instructionScene).toBe('object');
 });
 

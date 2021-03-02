@@ -2,7 +2,7 @@ import CreditsScene from '../Scenes/CreditsScene';
 
 const creditsScene = new CreditsScene();
 
-test('creditsScene is of type object', () => {
+test('creditsScene is of type an object', () => {
   expect(typeof creditsScene).toBe('object');
 });
 

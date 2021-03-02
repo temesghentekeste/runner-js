@@ -2,7 +2,7 @@
 import GameScene from '../Scenes/GameScene';
 
 const gameInstance = new GameScene();
-test('game scene is a function', () => {
+test('game scene is an object', () => {
   expect(typeof gameInstance).toBe('object');
 });
 

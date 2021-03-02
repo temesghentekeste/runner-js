@@ -2,7 +2,7 @@
 import LeadersBoardScene from '../Scenes/LeadersBoardScene';
 
 const leadersBoardScene = new LeadersBoardScene();
-test('leadersBoardScene  is a function', () => {
+test('leadersBoardScene  is an object', () => {
   expect(typeof leadersBoardScene).toBe('object');
 });
 

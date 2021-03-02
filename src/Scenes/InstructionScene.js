@@ -25,7 +25,7 @@ export default class InstructionScene extends Phaser.Scene {
       .text(
         this.scale.width * 0.5 ,
         200,
-        'Press space to play again.'
+        'Press space to play the game.'
       )
       .setOrigin();
 
@@ -44,8 +44,8 @@ export default class InstructionScene extends Phaser.Scene {
 
     this.madeByTween = this.tweens.add({
       targets: this.madeByText,
-      y: -500,
-      duration: 60000,
+      y: -400,
+      duration: 35000,
       delay: 0,
       onComplete: () => {
         this.scene.start('Game');

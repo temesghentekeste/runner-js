@@ -20,9 +20,10 @@
 
 Runner JS is a JavaScript platform game built with Phaser. A player needs to jump every obstacle he or she encounters in order to survive in the endless platform runner. To interact with the game, a player can use such input devices as the keyboard or mouse. The score in the game is calculated based on two parameters: the duration the player stays in the game and the number of coins the player collects.
 
-## How to playa the game <a name = "play"></a>
+## How to play the game <a name = "play"></a>
 You need to jump from one platform to another. To jump, either press space, or click with the left button in your mouse. Your score increases with time, and every coin is worth 20 points.
 
+## Check the [GDD](./GDD.md)
 
 
 ## 🔴 Live Demo <a name = "live"></a>
